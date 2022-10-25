@@ -16,6 +16,11 @@ spec:
     spec:
       containers:
         - image: quay.io/openshift-pipeline/vote-api:latest
+          env:
+          - name: PASSWORD
+            value: "password"        
+          - name: DB_SECRET
+            value: "password"                    
           imagePullPolicy: Always
           name: pipelines-vote-api
           ports:

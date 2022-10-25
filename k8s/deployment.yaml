@@ -21,3 +21,6 @@ spec:
           ports:
             - containerPort: 9000
               protocol: TCP
+          securityContext:
+            privileged: true              
+

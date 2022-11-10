@@ -16,8 +16,19 @@ spec:
     spec:
       containers:
         - image: image-registry.openshift-image-registry.svc:5000/devsecops/pipelines-vote-api
+        ## Start: Secret in environment are not best practice 
+          env:
+          - name: PASSWORD
+            value: "password"        
+          - name: DB_SECRET
+            value: "password"                    
+        ## End : Secret in environment are not best practice 
           imagePullPolicy: Always
           name: pipelines-vote-api
           ports:
             - containerPort: 9000
               protocol: TCP
+        ## Start: Pod running as privileged not best practice 
+          securityContext:
+            privileged: true              
+        ## End: Pod running as privileged not best practice

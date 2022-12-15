@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: baddeploy
+  name: baddeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: baddeploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: baddeploy
+    spec:
+      containers:
+      - image: quay.io/shrishs/badimage
+        name: badimage
+        resources: {}
+status: {}
